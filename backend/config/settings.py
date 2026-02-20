@@ -37,6 +37,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # local apps
     'user',
+    'tasks',
+    'chats',
+    'aiinsights',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
