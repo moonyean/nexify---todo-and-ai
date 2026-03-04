@@ -6,6 +6,7 @@ from tasks.models import Task
 from django.http import JsonResponse
 from .models import AIInsight
 from django.shortcuts import get_object_or_404
+from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 # https://ai.google.dev/gemini-api/docs/structured-output?hl=ko&example=recipe
@@ -62,6 +63,23 @@ def insights_view(request):
             }
         })
 
+
+def insights_list_view(request):
+    """GET /insights - 현재 유저의 dismissed 되지 않은 인사이트 목록 반환"""
+    if request.method != 'GET':
+        return JsonResponse({"status": "error", "message": "Method not allowed"}, status=405)
+
+    insights = AIInsight.objects.filter(user=request.user, is_dismissed=False).order_by('-created_at')
+    data = [{
+        "id": str(i.id),
+        "title": i.title,
+        "content": i.content,
+        "type": i.type,
+        "created_at": i.created_at.isoformat(),
+    } for i in insights]
+
+    return JsonResponse({"status": "success", "data": data})
+
 def delete_view(request, insight_id):
     if request.method == 'DELETE':
         try:
@@ -73,17 +91,10 @@ def delete_view(request, insight_id):
             return JsonResponse({"status": "error", "message": "인사이트를 찾을 수 없습니다."}, status=404)
         
 
-@api_view(['DELETE'])
+@require_http_methods(["DELETE"])
 def insight_dismiss_view(request, id):
-    """
-    명세: 카드 우측 상단 [X] 버튼 클릭 시 목록에서 제외
-    """
-    # 1. 해당 유저의 인사이트인지 확인하며 가져오기
-    # id가 SQL에서 UUID였으므로, URL 변수와 모델 PK가 UUID여야 합니다.
+    """DELETE /insights/{id} - 카드 우측 상단 [X] 클릭 시 목록에서 제외"""
     insight = get_object_or_404(AIInsight, id=id, user=request.user)
-
-    # 2. 삭제 대신 '제외됨' 상태로 변경 (is_dismissed 필드 활용)
-    # 만약 완전히 지우고 싶다면 insight.delete()를 사용하세요.
     insight.is_dismissed = True
     insight.save()
 

@@ -146,3 +146,16 @@ def setting_view(request):
         return JsonResponse({"error": "Invalid JSON data"}, status=400)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+
+# 3. 로그아웃 (POST /auth/logout)
+@api_view(['POST'])
+def logout_view(request):
+    """
+    명세서: 프로필 하단 [Log Out] 버튼 클릭
+    """
+    # 클라이언트는 localStorage에서 토큰을 제거
+    return JsonResponse({
+        "status": "success",
+        "message": "Logout successful"
+    })
