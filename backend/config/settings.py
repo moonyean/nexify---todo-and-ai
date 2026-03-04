@@ -56,6 +56,8 @@ INSTALLED_APPS = [
 
     # provider
     'allauth.socialaccount.providers.google',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +69,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",  
+
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -155,3 +159,8 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 
 # use custom user model
 AUTH_USER_MODEL = 'user.User'
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:5173",
+    "http://127.0.0.1:8000",
+]
