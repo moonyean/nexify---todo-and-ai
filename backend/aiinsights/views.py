@@ -2,7 +2,7 @@ from django.shortcuts import render
 from google import genai
 from pydantic import BaseModel, Field
 from typing import List, Optional
-from tasks.models import Tasks
+from tasks.models import Task
 from django.http import JsonResponse
 from .models import AIInsight
 from django.shortcuts import get_object_or_404
@@ -26,7 +26,7 @@ def insights_view(request):
             # priority: str = Field(description="The priority level of the TODO item, such as 'High', 'Medium', or 'Low'.")
             # due_date: str = Field(description="The due date for the TODO item in ISO 8601 format (YYYY-MM-DD).")
 
-        user_tasks = Tasks.objects.filter(user_id=request.user.id, is_done=False)
+        user_tasks = Task.objects.filter(user=request.user, is_done=False)
         task_list_text = "\n".join([f"- {t.title} (중요도: {t.priority}, 마감: {t.due_date})" for t in user_tasks])
 
         client = genai.Client(api_key = "GEMINI_API_KEY")

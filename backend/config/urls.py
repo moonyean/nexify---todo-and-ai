@@ -16,8 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import JsonResponse
+
+def api_root(request):
+    return JsonResponse({
+        'message': 'Welcome to Nexify API',
+        'endpoints': {
+            'admin': '/admin/',
+            'auth': '/auth/',
+            'tasks': '/tasks/',
+        }
+    })
 
 urlpatterns = [
+    path('', api_root, name='api-root'),
     path('admin/', admin.site.urls),
     path('auth/', include('user.urls')),
     path('tasks/', include('tasks.urls')),

@@ -6,8 +6,8 @@ from django.utils import timezone
 
 class ChatMessages(models.Model):
     id = models.UUIDField(primary_key = True, default= uuid.uuid4)
-    user_id = models.ForeignKey('users.User', on_delete = models.CASCADE)
-    role = models.TextChoices("user", "ai")
+    user = models.ForeignKey('user.User', on_delete = models.CASCADE)
+    role = models.CharField(max_length = 10, choices = [("user", "user"), ("ai", "ai")])
     content = models.TextField(null=True) 
     created_at = models.DateTimeField(default=timezone.now)
 
