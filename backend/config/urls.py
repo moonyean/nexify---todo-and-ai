@@ -25,6 +25,7 @@ def api_root(request):
             'admin': '/admin/',
             'auth': '/auth/',
             'tasks': '/tasks/',
+            'aiinsights': '/insights/',
         }
     })
 
@@ -33,4 +34,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('user.urls')),
     path('tasks/', include('tasks.urls')),
+    path('insights/', include('aiinsights.urls')),
 ]
