@@ -1,15 +1,16 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
+import { AuthProvider } from "./provider/AuthContext";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <h1>test</h1>
-    </>
+    <AuthProvider>
+      <>
+        <h1>test</h1>
+      </>
+    </AuthProvider>
   );
 }
 
