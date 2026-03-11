@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { AuthProvider } from "./provider/AuthContext";
+import sideBar from "./page/sideBar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <AuthProvider>
-      <>
-        <h1>test</h1>
-      </>
+      <dv
+      <SideBar />
     </AuthProvider>
   );
 }
