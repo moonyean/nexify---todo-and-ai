@@ -1,5 +1,5 @@
-import axiosInstance from "./axios";
-import request from "../constant/request";
+import axiosInstance from './axios';
+import request from '../constant/request';
 
 export const fetchProfile = async () => {
   const res = await axiosInstance.get(request.USER_PROFILE);

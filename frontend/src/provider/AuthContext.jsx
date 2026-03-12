@@ -4,14 +4,14 @@ import {
   useContext,
   useEffect,
   useState,
-} from "react";
+} from 'react';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     try {
-      const storedUser = localStorage.getItem("user");
+      const storedUser = localStorage.getItem('user');
       return storedUser ? JSON.parse(storedUser) : null;
     } catch (e) {
       console.error(e);
@@ -19,13 +19,13 @@ export const AuthProvider = ({ children }) => {
   });
 
   const login = useCallback((userData) => {
-    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     setUser(null);
   }, []);
 
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error("useAuth는 AuthProvider 내에서 사용 가능");
+    throw new Error('useAuth는 AuthProvider 내에서 사용 가능');
   }
   return context;
 };

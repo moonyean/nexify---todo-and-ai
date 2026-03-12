@@ -1,6 +1,6 @@
-import { useAuth } from "../../contexts";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useAuth } from '../../contexts';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const RequireAuth = ({ children }) => {
   const { loggedUser } = useAuth();

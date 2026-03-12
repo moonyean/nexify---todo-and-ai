@@ -1,5 +1,5 @@
-import axiosInstance from "./axios";
-import request from "../constant/request";
+import axiosInstance from './axios';
+import request from '../constant/request';
 
 export const googleLogin = async () => {
   window.location.href = request.AUTH_LOGIN;
