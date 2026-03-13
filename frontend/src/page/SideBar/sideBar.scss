@@ -15,7 +15,6 @@
 .sideBar_top {
   height: 188px;
   border-bottom: 1px solid #8163bf;
-
   .profile_container {
     display: flex;
     align-items: center;
@@ -54,9 +53,11 @@
 }
 
 .sideBar_middle {
+  border-bottom: solid 1px #8163bf;
 }
 
 .sideBar_bottom {
   margin-top: auto;
   height: 78.5px;
+  margin-bottom: 16px;
 }

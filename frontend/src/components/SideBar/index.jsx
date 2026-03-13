@@ -7,7 +7,8 @@ export const MenuBar = ({ icon: Icon, menuName, onHandleEvent }) => {
       onClick={onHandleEvent}
       className={`${menuName === 'Logout' ? 'loginMenu' : ''} menu-bar-container`}
     >
-      <Icon className="menu-icon" /> <span>{menuName}</span>
+      <Icon className="menu-icon" />
+      <span>{menuName}</span>
     </section>
   );
 };

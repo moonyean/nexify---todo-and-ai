@@ -1,21 +1,54 @@
-.menu-icon {
-  color: white;
-}
+// .menu-icon {
+//   color: white;
+// }
 
-span {
-  margin: 0;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  line-height: 1.5;
-  letter-spacing: 0.00938em;
-  font-weight: 600;
-  font-size: 15px;
-  color: white;
+// span {
+//   margin: 0;
+//   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+//   line-height: 1.5;
+//   letter-spacing: 0.00938em;
+//   font-weight: 600;
+//   font-size: 15px;
+//   color: white;
+// }
+
+// .loginMenu {
+//   background: rgba(255, 255, 255, 0.1);
+
+//   &:hover {
+//     background: rgba(255, 255, 255, 0.2);
+//   }
+// }
+
+.menu-bar-container {
+  // text-align: center;
+  display: flex;
+  align-items: center;
+  height: 46.5px;
+  padding: 8px 16px;
+  font-size: 16px;
+  // border: red solid 1px;
+  border-radius: 10px;
+  margin-top: 10px;
+
+  .menu-icon {
+    font-size: 20px;
+    margin-right: 24px;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  &:hover {
+    background: #ffffff1a;
+  }
 }
 
 .loginMenu {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff1a;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #ffffff33;
   }
 }

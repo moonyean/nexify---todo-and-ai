@@ -1,7 +1,9 @@
 import React from 'react';
 import { MenuBar } from '../../components';
-import { IoHome } from 'react-icons/io5';
+import { IoHome, IoChatboxEllipses } from 'react-icons/io5';
 import './SideBar.scss';
+import { FaUser } from 'react-icons/fa';
+import { MdOutlineLogout } from 'react-icons/md';
 
 // const SideBar = ({ className }) => {
 const SideBar = () => {
@@ -33,21 +35,21 @@ const SideBar = () => {
       <section className="sideBar_middle">
         <MenuBar
           icon={IoHome}
-          menuName={'hello'}
+          menuName={'Home'}
           onHandleEvent={function () {
             console.log('hello');
           }}
         />
         <MenuBar
-          icon={IoHome}
-          menuName={'hello'}
+          icon={IoChatboxEllipses}
+          menuName={'Chat'}
           onHandleEvent={function () {
             console.log('hello');
           }}
         />
         <MenuBar
-          icon={IoHome}
-          menuName={'hello'}
+          icon={FaUser}
+          menuName={'Profile'}
           onHandleEvent={function () {
             console.log('hello');
           }}
@@ -56,8 +58,8 @@ const SideBar = () => {
 
       <section className="sideBar_bottom">
         <MenuBar
-          icon={IoHome}
-          menuName={'bottom'}
+          icon={MdOutlineLogout}
+          menuName={'Logout'}
           onHandleEvent={function () {
             console.log('hello');
           }}
