@@ -1,0 +1,62 @@
+.sideBar_Container {
+  width: 280px;
+  height: 100%;
+  color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  flex-wrap: wrap;
+  > * {
+    width: 100%;
+  }
+}
+
+.sideBar_top {
+  height: 188px;
+  border-bottom: 1px solid #8163bf;
+
+  .profile_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 76px;
+    img,
+    userImg {
+      width: 48px;
+      height: 48px;
+      border-radius: 20%;
+    }
+
+    .profile {
+      p:first-child {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      p:second-child {
+        color: #ffffb3;
+      }
+      > * {
+        margin: 0;
+      }
+    }
+
+    &:first-child {
+      margin-bottom: 12px;
+    }
+
+    &:nth-child(2) {
+      padding: 0 16px 0 16px;
+      background: #ffffff26;
+      border-radius: 20px;
+    }
+  }
+}
+
+.sideBar_middle {
+}
+
+.sideBar_bottom {
+  margin-top: auto;
+  height: 78.5px;
+}

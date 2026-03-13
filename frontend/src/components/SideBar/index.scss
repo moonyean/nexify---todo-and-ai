@@ -1,21 +1,21 @@
 .menu-icon {
-    color: white;
+  color: white;
 }
 
 span {
-    margin: 0;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    line-height: 1.5;
-    letter-spacing: 0.00938em;
-    font-weight: 600;
-    font-size: 15px;
-    color: white;
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
 }
 
 .loginMenu {
-    background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 
-    &:hover {
-        background: rgba(255, 255, 255, 0.2);
-    }
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
