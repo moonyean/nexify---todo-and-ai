@@ -1,4 +1,4 @@
-import axiosInstance from './axios';
+import api from './axiosInstance';
 import request from '../constant/request';
 
 export const googleLogin = async () => {
@@ -6,6 +6,6 @@ export const googleLogin = async () => {
 };
 
 export const postLogout = async () => {
-  const res = await axiosInstance.post(request.AUTH_LOGOUT);
+  const res = await api.post(request.AUTH_LOGOUT);
   return res.data;
 };
