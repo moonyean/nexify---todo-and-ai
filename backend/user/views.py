@@ -5,6 +5,7 @@ from django.conf import settings
 from .models import User
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
+from django.contrib.auth import login  # 이 import가 필요합니다.
 
 # 1. 사용자를 구글 로그인 페이지로 리다이렉트
 @api_view(['GET'])
@@ -63,17 +64,15 @@ def google_callback(request):
         "name": user.name
     }
     token = base64.b64encode(json.dumps(payload).encode()).decode()
+    print(f"로그인 시도 유저: {request.user}") 
+    
+    if request.user.is_authenticated:
+        print("로그인 성공!")
+    else:
+        print("아직 로그인이 안 된 상태입니다.")
 
-    return JsonResponse({
-        "status": "success",
-        "message": "Login successful",
-        "token": token,
-        "user": {
-            "id": str(user.id),
-            "email": user.email,
-            "name": user.name
-        }
-    })
+    frontend_callback_url = f"http://localhost:5173/auth/callback?token={token}"
+    return redirect(frontend_callback_url)
 
 # 1. 프로필 조회 (GET /api/user/profile)
 @api_view(['GET'])

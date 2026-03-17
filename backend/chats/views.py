@@ -8,7 +8,7 @@ from .models import ChatMessages
 import os
 import json
 from google import genai
-
+from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 def send_view(request):
@@ -80,9 +80,6 @@ def suggestions_view(request):
         '오늘 회의 요약해줘'
     ]
     return JsonResponse({'status': 'success', 'suggestions': suggestions})
-        for m in messages
-    ]
-    return JsonResponse({"status": "success", "history": data})
 
 
 # GET /chat/suggestions - 추천 칩 목록 반환

@@ -44,7 +44,7 @@ urlpatterns = [
     # 인증 관련
     # 아... 굳이 include를 쓸 필요없음. 사고를 유연하게.
     path('auth/login/', user_views.google_login_redirect, name='auth-login'),
-    path('auth/callback/', user_views.google_callback, name='auth-callback'),
+    path('auth/google/callback/', user_views.google_callback, name='auth-callback'),
     path('auth/logout/', user_views.logout_view, name='auth-logout'),
     
     # 사용자 관련

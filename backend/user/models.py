@@ -19,7 +19,7 @@ class User(AbstractUser):
 class LoginSessions(models.Model):
     id = models.UUIDField(primary_key = True, default= uuid.uuid4)
     user_id = models.ForeignKey(User, on_delete = models.CASCADE)
-    deviece_info = models.TextField(verbose_name = "디바이스 정보")
+    device_info = models.TextField(verbose_name = "디바이스 정보")
     ip_address = models.GenericIPAddressField(verbose_name = "IP 주소")
     login_at = models.DateTimeField(default=timezone.now)
     is_current = models.BooleanField(default=False)

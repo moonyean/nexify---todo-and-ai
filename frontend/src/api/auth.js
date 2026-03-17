@@ -1,8 +1,8 @@
 import api from './axiosInstance';
-import request from '../constant/request';
+import { request } from '../constant/request';
 
 export const googleLogin = async () => {
-  window.location.href = request.AUTH_LOGIN;
+  window.location.href = 'http://127.0.0.1:8000/auth/login';
 };
 
 export const postLogout = async () => {
